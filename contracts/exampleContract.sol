@@ -9,6 +9,10 @@ contract ejemplo is AccessControl {
     bytes32 private valorpublico = keccak256("Nombre de usuario");
     bytes32 private valorPrivado = keccak256("Password");
 
+    constructor() {
+        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+    }
+
     function FuncionPublica() public view returns (bytes32) {
         return valorpublico;
     }
